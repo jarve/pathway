@@ -4,7 +4,6 @@
 package fi.csc.pathway;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -19,6 +18,8 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.PopupDateField;
 
 /**
+ * Tämän min- ja maxValue riippuvat tietokannan sisällöstä. 
+ * 
  * @author pj
  * Secondary functionality
  */

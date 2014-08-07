@@ -23,6 +23,12 @@ public class Ilmiot implements Serializable {
 	OptionGroup tyyppi;
 	OptionGroup tutka;
 
+	/**
+	 * Alustaa sateen tyyppi kentän.
+	 * 
+	 * @param tyyppi OptionGroup Vesi- vai raesade valinta.
+	 * @param tutka OptionGroup Tarvitaan toistaiseksi, koska kaikilla tutkilla ei ole raesade dataa.
+	 */
 	Ilmiot(OptionGroup tyyppi, OptionGroup tutka) {
 		this.tutka	= tutka;
 		this.tyyppi = tyyppi;
@@ -34,8 +40,11 @@ public class Ilmiot implements Serializable {
 	
 	  final ValueChangeListener changeValueListener_ilmiö = new ValueChangeListener() {
 	    	private static final long serialVersionUID = -5974051423624746113L;
+	        /**
+	         * Perustuu tietokannan sisältöön ja voi poistaa, kun joka tutkalle on raesade taulu
+	         */	 
 	        @Override
-	        public void valueChange(ValueChangeEvent event) {
+       public void valueChange(ValueChangeEvent event) {
 	        	if (event.getProperty().getValue().toString().equals(RAE)) {
 	        		tutka.setItemEnabled(Tutkat.LUOSTO, false);
 	        		tutka.setItemEnabled(Tutkat.VIMPELI, false);

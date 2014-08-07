@@ -72,14 +72,16 @@ public class TutkaUI extends UI {
         final VerticalLayout vasenpalkki = new VerticalLayout();        
         final HorizontalLayout layout  = new HorizontalLayout(); //main
         final HorizontalLayout karttapalkki = new HorizontalLayout();
+        final HorizontalLayout lkmnext = new HorizontalLayout();
         final Label hr = new Label("  ____________________", ContentMode.HTML);
         final Label aika = new Label("Time", ContentMode.HTML);
+        final Label lkm = new Label("0", ContentMode.HTML);
         final Button next = new Button("Next");
     	final OptionGroup tyyppi = new OptionGroup("Type");	
     	final OptionGroup tutka = new OptionGroup("Radar");
 		final OptionGroup kulma = new OptionGroup("Angle");	
 		final OptionGroup kärjet =  new OptionGroup("Min vertices");	
-        final Googlekartta gma = new Googlekartta(aika, tutka, kulma, tyyppi, kärjet, portletContextName);
+        final Googlekartta gma = new Googlekartta(aika, tutka, kulma, tyyppi, kärjet, portletContextName, lkm);
         final Tutkat tutkat = new Tutkat();
     	final PopupDateField enddate = new PopupDateField("To:");
 		final PopupDateField startdate = new PopupDateField("From:");		
@@ -121,7 +123,9 @@ public class TutkaUI extends UI {
 					//oldC = newComponent;
 					vasenpalkki.addComponent(hr);
 					vasenpalkki.addComponent(aika);
-					vasenpalkki.addComponent(next);
+					lkmnext.addComponent(lkm);
+					lkmnext.addComponent(next);
+					vasenpalkki.addComponent(lkmnext);
 				}
 			}
 		});

@@ -31,7 +31,6 @@ import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapMarker;
 import com.vaadin.tapio.googlemaps.client.overlays.GoogleMapPolygon;
 import com.vaadin.tapio.googlemaps.client.events.MapClickListener;
 import com.vaadin.tapio.googlemaps.client.events.MarkerClickListener;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.OptionGroup;
@@ -66,6 +65,7 @@ public class Googlekartta implements Serializable {
 	final Tutkat tutkat = new Tutkat();
 	private GoogleMap googleMap;
 	private Label time;
+	private Label lkm;
 	private ArrayList<Result> jcr ;
 	private OptionGroup t;
 	private int i=0;
@@ -86,13 +86,14 @@ public class Googlekartta implements Serializable {
 	 * @param kärjet OptionGroup	Monikulmion kärkien lukumäätä
 	 * @param name String			Portti, jossa ohjelmaa ajava tomcat pyörii + tämän portletin nimi
 	 */
-	Googlekartta(Label aika, OptionGroup tutkat, OptionGroup kulma, OptionGroup tyyppi, OptionGroup kärjet, String name) {	
+	Googlekartta(Label aika, OptionGroup tutkat, OptionGroup kulma, OptionGroup tyyppi, OptionGroup kärjet, String name, Label lkm) {	
 		this.time = aika;
 		this.pname = name;
 		this.t = tutkat;
 		this.kulma = kulma;
 		this.tyyppi = tyyppi;
 		this.vertices = kärjet;
+		this.lkm = lkm;
 	}
 	
 	/**
@@ -119,6 +120,7 @@ public class Googlekartta implements Serializable {
 		i = 0;
 		if (!jcr.isEmpty()) {
 			addOverlay( jcr.get(i).polygon );
+			lkm.setValue(Integer.toString(jcr.size()));
 		} else {
 			Notification.show("Query return empty result.", "Please try other query", Notification.Type.WARNING_MESSAGE);
 			return false;
@@ -148,6 +150,7 @@ public class Googlekartta implements Serializable {
 		} catch ( java.lang.IndexOutOfBoundsException e) {
 			return true;
 		}
+		lkm.setValue(Integer.toString(jcr.size()-i));
 		return (i == jcr.size()-1);
 	}
 	
