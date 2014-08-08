@@ -105,7 +105,7 @@ public class Googlekartta implements Serializable {
 	 * @return boolean onnistuiko kysely, false jos dataa ei löytynyt 
 	 */
 	public boolean getMap(Date startd, Date endd, Object tutka) {
-		String qalue = alue(googleMap.getCenter(), 360.0/Math.pow(2,googleMap.getZoom())); //kartalla näkyvä
+		String qalue = alue(googleMap.getCenter(), 360.0/Math.pow(2,googleMap.getZoom()+1)); //kartalla näkyvä
 		int t = (int)tutka;
 		//googleMap = new GoogleMap(Tutkat.SIJAINNIT[t], 10, apikey);		
 		asetukset();

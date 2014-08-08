@@ -117,13 +117,12 @@ public class TutkaUI extends UI {
 			private static final long serialVersionUID = -8146345475859196612L;
 
 			public void buttonClick(ClickEvent event) {
-				//Component newComponent = 
 				if (gma.getMap(startdate.getValue(),enddate.getValue(), tutka.getValue())) { 
-					//karttapalkki.replaceComponent(oldC, newComponent);
-					//oldC = newComponent;
+					// tämä ei ole kaunista, mutta uudelleen lisääminen ei haittaa
 					vasenpalkki.addComponent(hr);
 					vasenpalkki.addComponent(aika);
 					lkmnext.addComponent(lkm);
+					next.setEnabled(true);
 					lkmnext.addComponent(next);
 					vasenpalkki.addComponent(lkmnext);
 				}
