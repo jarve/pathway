@@ -46,7 +46,7 @@ import com.vaadin.server.Sizeable;
 public class Googlekartta implements Serializable {
 	
 	private static final long serialVersionUID = 3953325456264644582L;
-	static final String apikey = "AIzaSyDl-9f9zH8Yjzi6iK8VjS_xPwG7L8cBksY";
+	static final String apikey = "poistettu, pyydä oma googlelta";
 	static final String HOST = "http://localhost:";
 	static final String QUERY = "/query.jsp?startdate=";
 	static final String TUTKA = "&tutka=";
@@ -58,7 +58,7 @@ public class Googlekartta implements Serializable {
 	static final String SPACE = " ";
 	static final String COMMA = ",";
 	static final float MAPLEVEYS = 720; //px
-	static final float MAPKORKEUS = 600; //px
+	static final float MAPKORKEUS = 650; //px
 	public static final int CLICKZOOM = 8;
 	private static final int MINZOOM = 5;
 
